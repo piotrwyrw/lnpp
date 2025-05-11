@@ -72,7 +72,9 @@ int lnppd_start_advertiser()
 		return -1;
 	}
 
-	while (glob_state.running);
+	while (glob_state.running) {
+		pause();
+	}
 
 	pthread_join(t, NULL);
 
