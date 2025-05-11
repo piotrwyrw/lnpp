@@ -23,7 +23,7 @@ static void *_lnppd_advert_loop(void *junk)
 	t.tv_sec = 5;
 
 	struct lnpp_packet packet;
-	lnpp_packet_advert(&packet, "Dona eis requiem");
+	lnpp_packet_advert(&packet, "Dona eis requiem", LNPPD_ADVERT_PORT, LNPPD_STREAM_PORT);
 
 	while (glob_state.running) {
 		nanosleep(&t, NULL);

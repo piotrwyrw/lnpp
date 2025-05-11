@@ -15,6 +15,8 @@ enum lnpp_pktype {
 
 struct PACKED(lnpp_advert) {
 	char name[PKT_ADV_LEN];
+	uint16_t udp_port;
+	uint16_t tcp_port;
 };
 
 struct PACKED(lnpp_ping) {
@@ -29,7 +31,7 @@ struct PACKED(lnpp_packet) {
 	};
 };
 
-void lnpp_packet_advert(struct lnpp_packet *dst, char *name);
+void lnpp_packet_advert(struct lnpp_packet *dst, char *name, uint16_t udp_port, uint16_t tcp_port);
 void lnpp_packet_ping(struct lnpp_packet *dst, time_t time);
 
 #endif

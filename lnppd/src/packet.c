@@ -8,9 +8,11 @@ static void _lnpp_packet_prime(struct lnpp_packet *dst, enum lnpp_pktype type)
 	dst->type = type;
 }
 
-void lnpp_packet_advert(struct lnpp_packet *dst, char *name)
+void lnpp_packet_advert(struct lnpp_packet *dst, char *name, uint16_t udp_port, uint16_t tcp_port)
 {
 	_lnpp_packet_prime(dst, LNPP_ADVERTISEMENT);
+	dst->advert.udp_port = udp_port;
+	dst->advert.tcp_port = tcp_port;
 	strlcpy(dst->advert.name, name, PKT_ADV_LEN - 1);
 }
 
