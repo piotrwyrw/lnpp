@@ -7,12 +7,8 @@
 #include <netinet/in.h>
 #include <stdio.h>
 #include <string.h>
-#include <sys/_endian.h>
-#include <sys/_types/_socklen_t.h>
-#include <sys/syslog.h>
 #include <time.h>
 #include <unistd.h>
-#include <sys/socket.h>
 #include <syslog.h>
 #include <arpa/inet.h>
 #include <pthread.h>
@@ -30,20 +26,19 @@ static void *_lnppd_advert_loop(struct lnppd_adv_data *data)
 	struct lnpp_packet packet;
 	lnpp_packet_advert(&packet, "Dona eis requiem");
 
-loop:
-	if (!glob_state.running)
-		goto finalize;
+	while (glob_state.running) {
+		now = time(NULL);
 
-	now = time(NULL);
-	if (now - last_adv < 5)
-		goto loop;
+		if (now - last_adv < 5) {
+			usleep(100000);
+			continue;
+		}
 
-	sendto(data->sockd, &packet, sizeof(struct lnpp_packet), 0, (struct sockaddr *) &data->addr, (socklen_t) sizeof(struct sockaddr_in));
+		sendto(data->sockd, &packet, sizeof(struct lnpp_packet), 0, (struct sockaddr *) &data->addr,
+				(socklen_t) sizeof(struct sockaddr_in));
+	}
 
-	goto loop;
-
-finalize:
-	syslog(LOG_INFO, "LNPPD Advertiser shutting down.");
+	syslog(LOG_INFO, "LNPPD Advertiser thread received shutdown request.");
 	close(data->sockd);
 	return NULL;
 }

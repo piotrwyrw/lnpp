@@ -9,8 +9,8 @@ void lnpp_packet_advert(struct lnpp_packet *dst, char *name)
 	strlcpy(dst->advert.name, name, PKT_ADV_LEN - 1);
 }
 
-void lnpp_packet_ping(struct lnpp_packet *dst, time_t unix)
+void lnpp_packet_ping(struct lnpp_packet *dst, time_t time)
 {
 	dst->type = LNPP_PING;
-	dst->ping.unix = unix;
+	dst->ping.time = time;
 }

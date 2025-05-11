@@ -18,7 +18,7 @@ struct PACKED(lnpp_advert) {
 };
 
 struct PACKED(lnpp_ping) {
-	time_t unix;
+	time_t time;
 };
 
 struct PACKED(lnpp_packet) {
@@ -30,6 +30,6 @@ struct PACKED(lnpp_packet) {
 };
 
 void lnpp_packet_advert(struct lnpp_packet *dst, char *name);
-void lnpp_packet_ping(struct lnpp_packet *dst, time_t unix);
+void lnpp_packet_ping(struct lnpp_packet *dst, time_t time);
 
 #endif
