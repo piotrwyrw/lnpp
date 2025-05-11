@@ -129,35 +129,125 @@ lnppd/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/lnppd.dir/build.make CMakeFiles/lnppd.dir/build
 .PHONY : lnppd/fast
 
+src/dutil.o: src/dutil.c.o
+.PHONY : src/dutil.o
+
 # target to build an object file
-src/main.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/lnppd.dir/build.make CMakeFiles/lnppd.dir/src/main.o
+src/dutil.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/lnppd.dir/build.make CMakeFiles/lnppd.dir/src/dutil.c.o
+.PHONY : src/dutil.c.o
+
+src/dutil.i: src/dutil.c.i
+.PHONY : src/dutil.i
+
+# target to preprocess a source file
+src/dutil.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/lnppd.dir/build.make CMakeFiles/lnppd.dir/src/dutil.c.i
+.PHONY : src/dutil.c.i
+
+src/dutil.s: src/dutil.c.s
+.PHONY : src/dutil.s
+
+# target to generate assembly for a file
+src/dutil.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/lnppd.dir/build.make CMakeFiles/lnppd.dir/src/dutil.c.s
+.PHONY : src/dutil.c.s
+
+src/main.o: src/main.c.o
 .PHONY : src/main.o
 
-# target to preprocess a source file
-src/main.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/lnppd.dir/build.make CMakeFiles/lnppd.dir/src/main.i
+# target to build an object file
+src/main.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/lnppd.dir/build.make CMakeFiles/lnppd.dir/src/main.c.o
+.PHONY : src/main.c.o
+
+src/main.i: src/main.c.i
 .PHONY : src/main.i
 
-# target to generate assembly for a file
-src/main.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/lnppd.dir/build.make CMakeFiles/lnppd.dir/src/main.s
+# target to preprocess a source file
+src/main.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/lnppd.dir/build.make CMakeFiles/lnppd.dir/src/main.c.i
+.PHONY : src/main.c.i
+
+src/main.s: src/main.c.s
 .PHONY : src/main.s
 
+# target to generate assembly for a file
+src/main.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/lnppd.dir/build.make CMakeFiles/lnppd.dir/src/main.c.s
+.PHONY : src/main.c.s
+
+src/packet.o: src/packet.c.o
+.PHONY : src/packet.o
+
 # target to build an object file
-src/state.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/lnppd.dir/build.make CMakeFiles/lnppd.dir/src/state.o
-.PHONY : src/state.o
+src/packet.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/lnppd.dir/build.make CMakeFiles/lnppd.dir/src/packet.c.o
+.PHONY : src/packet.c.o
+
+src/packet.i: src/packet.c.i
+.PHONY : src/packet.i
 
 # target to preprocess a source file
-src/state.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/lnppd.dir/build.make CMakeFiles/lnppd.dir/src/state.i
-.PHONY : src/state.i
+src/packet.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/lnppd.dir/build.make CMakeFiles/lnppd.dir/src/packet.c.i
+.PHONY : src/packet.c.i
+
+src/packet.s: src/packet.c.s
+.PHONY : src/packet.s
 
 # target to generate assembly for a file
-src/state.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/lnppd.dir/build.make CMakeFiles/lnppd.dir/src/state.s
+src/packet.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/lnppd.dir/build.make CMakeFiles/lnppd.dir/src/packet.c.s
+.PHONY : src/packet.c.s
+
+src/server.o: src/server.c.o
+.PHONY : src/server.o
+
+# target to build an object file
+src/server.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/lnppd.dir/build.make CMakeFiles/lnppd.dir/src/server.c.o
+.PHONY : src/server.c.o
+
+src/server.i: src/server.c.i
+.PHONY : src/server.i
+
+# target to preprocess a source file
+src/server.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/lnppd.dir/build.make CMakeFiles/lnppd.dir/src/server.c.i
+.PHONY : src/server.c.i
+
+src/server.s: src/server.c.s
+.PHONY : src/server.s
+
+# target to generate assembly for a file
+src/server.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/lnppd.dir/build.make CMakeFiles/lnppd.dir/src/server.c.s
+.PHONY : src/server.c.s
+
+src/state.o: src/state.c.o
+.PHONY : src/state.o
+
+# target to build an object file
+src/state.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/lnppd.dir/build.make CMakeFiles/lnppd.dir/src/state.c.o
+.PHONY : src/state.c.o
+
+src/state.i: src/state.c.i
+.PHONY : src/state.i
+
+# target to preprocess a source file
+src/state.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/lnppd.dir/build.make CMakeFiles/lnppd.dir/src/state.c.i
+.PHONY : src/state.c.i
+
+src/state.s: src/state.c.s
 .PHONY : src/state.s
+
+# target to generate assembly for a file
+src/state.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/lnppd.dir/build.make CMakeFiles/lnppd.dir/src/state.c.s
+.PHONY : src/state.c.s
 
 # Help Target
 help:
@@ -168,9 +258,18 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... lnppd"
+	@echo "... src/dutil.o"
+	@echo "... src/dutil.i"
+	@echo "... src/dutil.s"
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"
+	@echo "... src/packet.o"
+	@echo "... src/packet.i"
+	@echo "... src/packet.s"
+	@echo "... src/server.o"
+	@echo "... src/server.i"
+	@echo "... src/server.s"
 	@echo "... src/state.o"
 	@echo "... src/state.i"
 	@echo "... src/state.s"

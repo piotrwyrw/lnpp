@@ -1,12 +1,13 @@
-#ifndef LNPP_STATE
-#define LNPP_STATE
+#ifndef LNPPD_STATE
+#define LNPPD_STATE
 
 #include <stdbool.h>
+#include <pthread.h>
 
-struct lnpp_state {
+struct lnppd_state {
 	_Bool running;
 };
 
-extern struct lnpp_state glob_state;
+extern struct lnppd_state glob_state;
 
 #endif
