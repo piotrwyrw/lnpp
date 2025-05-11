@@ -20,22 +20,17 @@ struct lnppd_adv_data {
 
 static void *_lnppd_advert_loop(struct lnppd_adv_data *data)
 {
-	time_t last_adv = time(NULL);
-	time_t now;
+	struct timespec t;
+	t.tv_nsec = 0;
+	t.tv_sec = 5;
 
 	struct lnpp_packet packet;
 	lnpp_packet_advert(&packet, "Dona eis requiem");
 
 	while (glob_state.running) {
-		now = time(NULL);
-
-		if (now - last_adv < 5) {
-			usleep(100000);
-			continue;
-		}
-
-		//sendto(data->sockd, &packet, sizeof(struct lnpp_packet), 0, (struct sockaddr *) &data->addr,
-		//		(socklen_t) sizeof(struct sockaddr_in));
+		nanosleep(&t, NULL);
+		sendto(data->sockd, &packet, sizeof(struct lnpp_packet), 0, (struct sockaddr *) &data->addr,
+				(socklen_t) sizeof(struct sockaddr_in));
 	}
 
 	syslog(LOG_INFO, "LNPPD Advertiser thread received shutdown request.");
