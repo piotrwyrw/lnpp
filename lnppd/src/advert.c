@@ -13,13 +13,11 @@
 #include <arpa/inet.h>
 #include <pthread.h>
 
-struct lnppd_adv_data {
-	struct sockaddr_in addr;
-	int sockd;
-};
-
-static void *_lnppd_advert_loop(struct lnppd_adv_data *data)
+static void *_lnppd_advert_loop(void *junk)
 {
+	int sockd = glob_state.advert_sockd;
+	struct sockaddr_in *addr = &glob_state.advert_addr;
+
 	struct timespec t;
 	t.tv_nsec = 0;
 	t.tv_sec = 5;
@@ -29,20 +27,20 @@ static void *_lnppd_advert_loop(struct lnppd_adv_data *data)
 
 	while (glob_state.running) {
 		nanosleep(&t, NULL);
-		sendto(data->sockd, &packet, sizeof(struct lnpp_packet), 0, (struct sockaddr *) &data->addr,
+		sendto(sockd, &packet, sizeof(struct lnpp_packet), 0, (struct sockaddr *) addr,
 				(socklen_t) sizeof(struct sockaddr_in));
 	}
 
 	syslog(LOG_INFO, "LNPPD Advertiser thread received shutdown request.");
-	close(data->sockd);
+	close(sockd);
 	return NULL;
 }
 
 int lnppd_start_advertiser()
 {
 	int sockd;
-	struct sockaddr_in addr = {0};
 	int broadcast = 1;
+	struct sockaddr_in *addr = &glob_state.advert_addr;
 
 	if ((sockd = socket(PF_INET, SOCK_DGRAM, 0)) < 0) {
 		syslog(LOG_ERR, "Could not create LNPP UDP socket: %s\n", strerror(errno));
@@ -55,30 +53,17 @@ int lnppd_start_advertiser()
 		return -1;
 	}
 
-	addr.sin_family = AF_INET;
-	addr.sin_port = htons(LNPPD_ADVERT_PORT);
-	addr.sin_addr.s_addr = inet_addr("255.255.255.255");
+	addr->sin_family = AF_INET;
+	addr->sin_port = htons(LNPPD_ADVERT_PORT);
+	addr->sin_addr.s_addr = inet_addr("255.255.255.255");
 
-	pthread_t t;
+	glob_state.advert_sockd = sockd;
 
-	struct lnppd_adv_data data  = {
-		.addr = addr,
-		.sockd = sockd
-	};
-
-	if (pthread_create(&t, NULL, (void *) _lnppd_advert_loop, &data) != 0) {
+	if (pthread_create(&glob_state.advert_thread, NULL, (void *) _lnppd_advert_loop, NULL) != 0) {
 		syslog(LOG_ERR, "Could not create advertiser thread");
 		close(sockd);
 		return -1;
 	}
-
-	while (glob_state.running) {
-		pause();
-	}
-
-	pthread_join(t, NULL);
-
-	syslog(LOG_INFO, "LNPPD Server shutting down");
 
 	return 0;
 }

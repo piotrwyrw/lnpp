@@ -48,3 +48,9 @@ void lnpp_sigterm(int sig)
 	closelog();
 	glob_state.running = false;
 }
+
+void lnpp_halt_while_running()
+{
+	while (glob_state.running)
+		pause();
+}
