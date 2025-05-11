@@ -27,12 +27,12 @@ static void *_lnppd_advert_loop(struct lnppd_adv_data *data)
 	lnpp_packet_advert(&packet, "Dona eis requiem");
 
 	while (glob_state.running) {
-		//now = time(NULL);
+		now = time(NULL);
 
-		//if (now - last_adv < 5) {
-		//	usleep(100000);
-		//	continue;
-		//}
+		if (now - last_adv < 5) {
+			usleep(100000);
+			continue;
+		}
 
 		//sendto(data->sockd, &packet, sizeof(struct lnpp_packet), 0, (struct sockaddr *) &data->addr,
 		//		(socklen_t) sizeof(struct sockaddr_in));

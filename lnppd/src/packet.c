@@ -1,6 +1,5 @@
 #include "packet.h"
 
-#include <_string.h>
 #include <string.h>
 
 void lnpp_packet_advert(struct lnpp_packet *dst, char *name)
