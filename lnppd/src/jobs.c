@@ -52,7 +52,7 @@ int lnppd_start_job_server()
 		goto fail;
 	}
 
-	syslog(LOG_INFO, "LNPPD Job server is ready to accept connections on port %d.\n", LNPPD_STREAM_PORT);
+	syslog(LOG_INFO, "Job server is ready to accept connections on port %d.\n", LNPPD_STREAM_PORT);
 
 
 	while (glob_state.running) {
@@ -65,7 +65,7 @@ int lnppd_start_job_server()
 		nanosleep(&delay, NULL);
 	}
 
-	syslog(LOG_INFO, "LNPPD Job server shutting down ...");
+	syslog(LOG_INFO, "Job server shutting down ...");
 	return 0;
 
 fail:

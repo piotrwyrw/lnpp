@@ -34,7 +34,7 @@ static void *_lnppd_advert_loop(void *junk)
 				(socklen_t) sizeof(struct sockaddr_in));
 	}
 
-	syslog(LOG_INFO, "LNPPD Advertiser thread received shutdown request.");
+	syslog(LOG_INFO, "Advertiser thread received shutdown request.");
 	close(sockd);
 
 	return NULL;

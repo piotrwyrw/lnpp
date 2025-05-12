@@ -7,12 +7,12 @@
 int lnppd_start_network_services()
 {
 	if (lnppd_start_advertiser() < 0) {
-		syslog(LOG_ERR, "Failed to start LNPPD avertiser.");
+		syslog(LOG_ERR, "Failed to start avertiser.");
 		return -1;
 	}
 
 	if (lnppd_start_job_server() < 0) {
-		syslog(LOG_ERR, "Failed to start LNPPD job server.");
+		syslog(LOG_ERR, "Failed to start job server.");
 		return -1;
 	}
 

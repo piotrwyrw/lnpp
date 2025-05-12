@@ -30,7 +30,7 @@ int lnpp_daemonize()
 		close(STDOUT_FILENO);
 
 		signal(SIGTERM, lnpp_sigterm);
-		openlog("LNPP", LOG_PID | LOG_NDELAY | LOG_CONS, LOG_DAEMON);
+		openlog("LNPPD", LOG_PID | LOG_NDELAY | LOG_CONS, LOG_DAEMON);
 
 		return 0;
 	}
