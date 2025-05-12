@@ -23,6 +23,8 @@ void lnppd_terminate_network_services()
 {
 	syslog(LOG_INFO, "Terminating all network services ...");
 
-	if (glob_state.advert_ok)
+	if (glob_state.advert_ok) {
 		pthread_join(glob_state.advert_thread, NULL);
+		glob_state.advert_ok = false;
+	}
 }

@@ -66,7 +66,6 @@ int lnppd_start_job_server()
 	}
 
 	syslog(LOG_INFO, "LNPPD Job server shutting down ...");
-
 	return 0;
 
 fail:

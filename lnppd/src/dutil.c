@@ -49,5 +49,4 @@ void lnpp_sigterm(int sig)
 	syslog(LOG_INFO, "Initiating graceful daemon shutdown ...");
 	glob_state.running = false;
 	lnppd_terminate_network_services();
-	closelog();
 }

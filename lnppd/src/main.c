@@ -13,5 +13,7 @@ int main(void)
 		return 1;
 	}
 
+	closelog();
+
 	return 0;
 }
