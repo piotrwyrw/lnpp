@@ -24,6 +24,7 @@ static void *_lnppd_advert_loop(void *junk)
 
 	struct lnpp_packet packet;
 	lnpp_packet_advert(&packet, "Dona eis requiem", LNPPD_ADVERT_PORT, LNPPD_STREAM_PORT);
+	lnpp_packet_hton(&packet);
 
 	while (glob_state.running) {
 		nanosleep(&t, NULL);

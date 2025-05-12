@@ -1,5 +1,5 @@
-#ifndef LNPP_NETCFG
-#define LNPP_NETCFG
+#ifndef LNPPD_NETCFG
+#define LNPPD_NETCFG
 
 // ----- LNPP Network Config -----
 

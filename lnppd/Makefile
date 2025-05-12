@@ -201,6 +201,30 @@ src/main.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/lnppd.dir/build.make CMakeFiles/lnppd.dir/src/main.c.s
 .PHONY : src/main.c.s
 
+src/netutil.o: src/netutil.c.o
+.PHONY : src/netutil.o
+
+# target to build an object file
+src/netutil.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/lnppd.dir/build.make CMakeFiles/lnppd.dir/src/netutil.c.o
+.PHONY : src/netutil.c.o
+
+src/netutil.i: src/netutil.c.i
+.PHONY : src/netutil.i
+
+# target to preprocess a source file
+src/netutil.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/lnppd.dir/build.make CMakeFiles/lnppd.dir/src/netutil.c.i
+.PHONY : src/netutil.c.i
+
+src/netutil.s: src/netutil.c.s
+.PHONY : src/netutil.s
+
+# target to generate assembly for a file
+src/netutil.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/lnppd.dir/build.make CMakeFiles/lnppd.dir/src/netutil.c.s
+.PHONY : src/netutil.c.s
+
 src/network.o: src/network.c.o
 .PHONY : src/network.o
 
@@ -291,6 +315,9 @@ help:
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"
+	@echo "... src/netutil.o"
+	@echo "... src/netutil.i"
+	@echo "... src/netutil.s"
 	@echo "... src/network.o"
 	@echo "... src/network.i"
 	@echo "... src/network.s"
