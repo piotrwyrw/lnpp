@@ -13,6 +13,8 @@ int main(void)
 		return 1;
 	}
 
+	syslog(LOG_INFO, "Good night.");
+
 	closelog();
 
 	return 0;

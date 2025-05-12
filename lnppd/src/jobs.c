@@ -15,7 +15,7 @@
 int lnppd_start_job_server()
 {
 	int sockd;
-	struct sockaddr_in *addr;
+	struct sockaddr_in *addr = &glob_state.jobs_addr;
 
 	if ((sockd = socket(AF_INET, SOCK_STREAM, 0)) < 0) {
 		syslog(LOG_ERR, "Could not create socket for job server: %s\n", strerror(errno));
