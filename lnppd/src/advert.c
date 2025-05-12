@@ -1,7 +1,7 @@
-#include "server.h"
 #include "netcfg.h"
 #include "state.h"
 #include "packet.h"
+#include "network.h"
 
 #include <errno.h>
 #include <netinet/in.h>
@@ -15,6 +15,8 @@
 
 static void *_lnppd_advert_loop(void *junk)
 {
+	glob_state.advert_ok = true;
+
 	int sockd = glob_state.advert_sockd;
 	struct sockaddr_in *addr = &glob_state.advert_addr;
 
@@ -34,6 +36,7 @@ static void *_lnppd_advert_loop(void *junk)
 
 	syslog(LOG_INFO, "LNPPD Advertiser thread received shutdown request.");
 	close(sockd);
+
 	return NULL;
 }
 

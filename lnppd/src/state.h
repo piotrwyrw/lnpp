@@ -11,6 +11,11 @@ struct lnppd_state {
 	int advert_sockd;
 	struct sockaddr_in advert_addr;
 	pthread_t advert_thread;
+	_Bool advert_ok;
+
+	int jobs_sockd;
+	struct sockaddr_in jobs_addr;
+	_Bool jobs_ok;
 };
 
 extern struct lnppd_state glob_state;

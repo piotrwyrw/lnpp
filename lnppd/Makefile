@@ -177,6 +177,30 @@ src/dutil.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/lnppd.dir/build.make CMakeFiles/lnppd.dir/src/dutil.c.s
 .PHONY : src/dutil.c.s
 
+src/jobs.o: src/jobs.c.o
+.PHONY : src/jobs.o
+
+# target to build an object file
+src/jobs.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/lnppd.dir/build.make CMakeFiles/lnppd.dir/src/jobs.c.o
+.PHONY : src/jobs.c.o
+
+src/jobs.i: src/jobs.c.i
+.PHONY : src/jobs.i
+
+# target to preprocess a source file
+src/jobs.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/lnppd.dir/build.make CMakeFiles/lnppd.dir/src/jobs.c.i
+.PHONY : src/jobs.c.i
+
+src/jobs.s: src/jobs.c.s
+.PHONY : src/jobs.s
+
+# target to generate assembly for a file
+src/jobs.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/lnppd.dir/build.make CMakeFiles/lnppd.dir/src/jobs.c.s
+.PHONY : src/jobs.c.s
+
 src/main.o: src/main.c.o
 .PHONY : src/main.o
 
@@ -200,30 +224,6 @@ src/main.s: src/main.c.s
 src/main.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/lnppd.dir/build.make CMakeFiles/lnppd.dir/src/main.c.s
 .PHONY : src/main.c.s
-
-src/netutil.o: src/netutil.c.o
-.PHONY : src/netutil.o
-
-# target to build an object file
-src/netutil.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/lnppd.dir/build.make CMakeFiles/lnppd.dir/src/netutil.c.o
-.PHONY : src/netutil.c.o
-
-src/netutil.i: src/netutil.c.i
-.PHONY : src/netutil.i
-
-# target to preprocess a source file
-src/netutil.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/lnppd.dir/build.make CMakeFiles/lnppd.dir/src/netutil.c.i
-.PHONY : src/netutil.c.i
-
-src/netutil.s: src/netutil.c.s
-.PHONY : src/netutil.s
-
-# target to generate assembly for a file
-src/netutil.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/lnppd.dir/build.make CMakeFiles/lnppd.dir/src/netutil.c.s
-.PHONY : src/netutil.c.s
 
 src/network.o: src/network.c.o
 .PHONY : src/network.o
@@ -312,12 +312,12 @@ help:
 	@echo "... src/dutil.o"
 	@echo "... src/dutil.i"
 	@echo "... src/dutil.s"
+	@echo "... src/jobs.o"
+	@echo "... src/jobs.i"
+	@echo "... src/jobs.s"
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"
-	@echo "... src/netutil.o"
-	@echo "... src/netutil.i"
-	@echo "... src/netutil.s"
 	@echo "... src/network.o"
 	@echo "... src/network.i"
 	@echo "... src/network.s"

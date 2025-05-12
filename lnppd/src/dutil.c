@@ -1,6 +1,8 @@
 #include "dutil.h"
 #include "state.h"
+#include "network.h"
 
+#include <sys/syslog.h>
 #include <syslog.h>
 #include <unistd.h>
 #include <stdio.h>
@@ -44,13 +46,8 @@ int lnpp_daemonize()
 
 void lnpp_sigterm(int sig)
 {
-	syslog(LOG_INFO, "LNPPD Daemon is gracefully terminating in response to SIGTERM.");
-	closelog();
+	syslog(LOG_INFO, "Initiating graceful daemon shutdown ...");
 	glob_state.running = false;
-}
-
-void lnpp_halt_while_running()
-{
-	while (glob_state.running)
-		pause();
+	lnppd_terminate_network_services();
+	closelog();
 }

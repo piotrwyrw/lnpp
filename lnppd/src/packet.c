@@ -1,5 +1,5 @@
 #include "packet.h"
-#include "netutil.c"
+#include "netutil.h"
 
 #include <stdint.h>
 #include <string.h>
